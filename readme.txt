@@ -8,7 +8,8 @@ git is a distributed version control system.
 sudo apt-get install  git
 
 
-二、Create a new repository
+二、仓库管理
+1.Create a new repository
 首先创建一个新目录：
 $ mkdir learngit
 $ cd learngit
@@ -17,12 +18,20 @@ $ cd learngit
 $ git init
 
 
-三、仓库管理
-1.添加文件到仓库 two steps
+2.添加文件到仓库 two steps
 $ git add readme.txt
+
 $ git commit -m ' 本次commit的说明  '
 
-2.常用命令
+$ git checkout -- file
+(可以丢弃工作区的修改,总之，就是让文件回到最近一次git commit或git add时的状态。)
+(git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。)
+
+$ git reset HEAD <file>
+(可以把暂存区的修改撤销掉（unstage），重新放回工作区)
+
+
+3.常用命令
 $ git status
 ( 时刻掌握仓库当前状态)
 
@@ -32,7 +41,7 @@ $ git diff  'filesname'
 
 
 
-四、版本控制管理
+三、版本控制管理
 $ git log
 (查看历史版本)
 
@@ -50,16 +59,9 @@ HEAD is now at e475afc add distributed
 Working Directory   git add到  stage   git commit到  版本分支branch
                     git rm             git commit
     
-3.修改管理
-$ git checkout -- file
-(可以丢弃工作区的修改,总之，就是让文件回到最近一次git commit或git add时的状态。)
-(git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。)
-
-$ git reset HEAD <file>
-(可以把暂存区的修改撤销掉（unstage），重新放回工作区)
 
 
-4.远程仓库管理控制
+3.远程仓库管理控制
 $ git remote add origin git@github.com:michaelliao/learngit.git
 （关联远程库,origin是默认的远程库写法）
 
@@ -73,7 +75,7 @@ $ git clone git仓库地址
 （从远程仓库克隆到本地仓库）
 
   
-五、branch管理
+四、branch管理
 1.创建、合并与删除分支
 $ git branch 查看分支
 $ git branch <name>  创建分支
@@ -94,7 +96,7 @@ $ git branch -d <name>  删除某分支
 
 
 
-4.多人协作
+五.多人协作
 查看远程库信息  $ git  remote -v
 
 
